@@ -1,10 +1,10 @@
-const request = () => {
-  return $.ajax({
+export const requestTodos = () => (
+  $.ajax({
     method: 'GET',
     url: '/api/todos'
-  });
-};
+  })
+);
 // console.log('here');
 // const x = 5;
-export default request;
+// export default request;
 // console.log('sdf');

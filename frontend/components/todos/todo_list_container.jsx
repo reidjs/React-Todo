@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { receiveTodos, receiveTodo } from '../../todo_actions';
 import TodoList from './todo_list';
 import { getAllTodos } from '../../reducers/selectors';
+import { fetchTodos } from '../../todo_actions';
 
 //grabbing state from store passing them as props so that component can use them
 const mapStateToProps = (state) => ({
@@ -9,8 +10,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  receiveTodos: (todos) => dispatch(receiveTodos(todos)),
-  receiveTodo: (todo) => dispatch(receiveTodo(todo))
+  receiveTodos: (todos) => dispatch(fetchTodos()),
+  // receiveTodos: (todos) => dispatch(receiveTodos(todos)),
+  receiveTodo: (todo) => dispatch(receiveTodo(todo)),
+
 });
 //ALL REACT COMPONENTS NEED TO START WITH CAPITAL LETTER
 //allows presentational component todoList to have access

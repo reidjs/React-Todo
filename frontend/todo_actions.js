@@ -15,10 +15,7 @@ export const receiveTodo = (todo) => ({
 });
 
 export const fetchTodos = () => (dispatch) => (
-  // console.log('hello');
-  // requestTodos.then(receiveTodos())
   requestTodos().then((res) => {
-    console.log(res);
     dispatch(receiveTodos(res));
   })
 );

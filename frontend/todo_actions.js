@@ -1,5 +1,6 @@
 // export const ADD_ITEM = "ADD_ITEM";
 import { requestTodos, postTodo } from '../util/todo_api_util';
+import { receiveErrors } from './error_actions';
 export const RECEIVE_TODOS = 'RECEIVE_TODOS';
 export const RECEIVE_TODO = 'RECEIVE_TODO';
 
@@ -22,7 +23,8 @@ export const fetchTodos = () => (dispatch) => (
 );
 
 export const createTodo = (todo) => (dispatch) => (
-  postTodo(todo).then((res) => {
-    dispatch(receiveTodo(res));
-  })
+  postTodo(todo).then(
+    res => dispatch(receiveTodo(todo)),
+    err => dispatch(receiveErrors(err.responseJSON))
+  )
 );
